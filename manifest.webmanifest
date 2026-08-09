@@ -1,0 +1,11 @@
+{
+  "name": "Athlete Sleep Check",
+  "short_name": "Sleep Check",
+  "description": "毎朝約1分で回答できる、アスリート向け簡易睡眠チェック。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8f2",
+  "theme_color": "#2f6d5e",
+  "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}]
+}
