@@ -1,6 +1,12 @@
 # Athlete Sleep Check｜Q6 部署与本地引擎
 
-`config.js`保留正式 Google Apps Script `/exec` 地址。公开问卷升级到1.3.1前，必须先把`google_apps_script/Code.gs`部署到同一正式Spreadsheet，并完成验收；不得只升级网页。
+`config.js`保留现有正式 Google Apps Script `/exec` 地址，GitHub Pages 仍使用原仓库与原网址：
+
+`https://houutou.github.io/athlete-sleep-check-q6/`
+
+因此原二维码无需重做。升级到 1.3.2 时，必须先把配套 `Code.gs` 更新到**同一个 Apps Script 项目、同一个现有 Web App 部署**，确认 `/exec` 仍是原地址后，再覆盖公开仓库中的六个文件。不要新建仓库，也不要新建另一个 Web App deployment。
+
+1.3.2 修复了超时后同内容重试的幂等性，并把公开页的状态与错误提示统一为日文。问卷字段、Q6 题目、Spreadsheet 数据契约和 Pages URL 均未改变。
 
 Backend 1.3.1 不要求预先建立运动员名册。格式合法的非 `TEST*` ID 可直接提交；`ATHLETE_ROSTER` 仅用于以后补充分组、明确停用某个 ID 或设置有效日期窗口。
 
@@ -29,14 +35,14 @@ README_CN.md 是说明文件，可一起上传，也可以不上传。
 
 ## 正式使用前
 
-先实际提交一条测试记录，然后确认 Google Spreadsheet：
+在隔离测试 Spreadsheet 验证 1.3.2 后，再更新正式的现有 deployment。正式发布后只做一次受控端到端确认，并检查 Google Spreadsheet：
 
 - RAW_SUBMISSIONS 新增1行；
 - DAILY_ANALYSIS 新增或更新1行；
 - SYNC_STATUS 的 last_record_id 和 last_received_at 已更新；
 - 测试记录的 submission_status 为 ACCEPTED。
 
-确认完成后，再用 GitHub Pages 的公开网址生成二维码。
+已有二维码继续使用，不重新生成。
 
 ## 管理可视化（配置中）
 
